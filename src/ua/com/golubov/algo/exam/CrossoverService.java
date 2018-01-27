@@ -1,10 +1,35 @@
-package ua.com.golubov.algo.hard;
+package ua.com.golubov.algo.exam;
 
 import java.util.HashSet;
 import java.util.Set;
 
-public class CrossoverService2 {
+public class CrossoverService {
 
+    // use stack instead
+    public static int[] balancedOrNot(String[] expressions, int[] maxReplacements) {
+        int[] result = new int[expressions.length];
+
+        for (int i = 0; i < expressions.length; i++) {
+            int counter = 0;
+            boolean isOpenedAtTheEnd = false;
+            for (char c : expressions[i].toCharArray()) {
+                if (c == '<') {
+                    counter++;
+                    isOpenedAtTheEnd = true;
+                } else {
+                    counter--;
+                    isOpenedAtTheEnd = false;
+                }
+            }
+
+            if (Math.abs(counter) <= maxReplacements[i] && !isOpenedAtTheEnd) {
+                result[i] = 1;
+            }
+
+        }
+
+        return result;
+    }
 
     public static String[] twins(String[] a, String[] b) {
         String[] result = new String[a.length];
@@ -47,6 +72,5 @@ public class CrossoverService2 {
 
         return result;
     }
-
 
 }
