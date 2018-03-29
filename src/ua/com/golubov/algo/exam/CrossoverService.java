@@ -40,6 +40,7 @@ public class CrossoverService {
 
             if (a[i].length() != b[i].length()) {
                 result[i] = "No";
+                continue;
             }
 
             for (int j = 0; j < a[i].length(); j++) {
@@ -66,6 +67,47 @@ public class CrossoverService {
 
             if (result[i] == null) {
                 result[i] = "Yes";
+            }
+
+        }
+
+        return result;
+    }
+
+    public static boolean[] twinsBoolean(String[] a, String[] b) {
+        boolean[] result = new boolean[a.length];
+
+        for (int i = 0; i < a.length; i++) {
+            Set<Character> even = new HashSet<>();
+            Set<Character> odd = new HashSet<>();
+
+            if (a[i].length() != b[i].length()) {
+                result[i] = false;
+                continue;
+            }
+
+            result[i] = true;
+
+            for (int j = 0; j < a[i].length(); j++) {
+                if (j == 0 || j % 2 == 0) {
+                    odd.add(a[i].charAt(j));
+                } else {
+                    even.add(a[i].charAt(j));
+                }
+            }
+
+            for (int k = 0; k < b[i].length(); k++) {
+                if (k == 0 || k % 2 == 0) {
+                    if (!odd.contains(b[i].charAt(k))) {
+                        result[i] = false;
+                        break;
+                    }
+                } else {
+                    if (!even.contains(b[i].charAt(k))) {
+                        result[i] = false;
+                        break;
+                    }
+                }
             }
 
         }

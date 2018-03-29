@@ -4,6 +4,8 @@ import org.junit.Assert;
 import org.junit.Test;
 import ua.com.golubov.algo.exam.CrossoverService;
 
+import java.util.Random;
+
 import static org.junit.Assert.assertArrayEquals;
 
 public class CrossoverServiceTest {
@@ -28,5 +30,9 @@ public class CrossoverServiceTest {
         Assert.assertArrayEquals(new String[]{"Yes", "No"}, CrossoverService.twins(new String[]{"cdab", "dcba"}, new String[]{"abcd", "abcd"}));
     }
 
+    @Test
+    public void testCase5() {
+        Assert.assertArrayEquals(new boolean[]{true, false}, CrossoverService.twinsBoolean(new String[]{"cdab", "dcba"}, new String[]{"abcd", "abcd"}));
+    }
 
 }
