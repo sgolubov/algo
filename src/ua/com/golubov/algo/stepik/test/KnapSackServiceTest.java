@@ -12,4 +12,10 @@ public class KnapSackServiceTest {
         Assert.assertEquals(180.000, KnapSackService.solve(goods, 50), 0.001);
     }
 
+    @Test
+    public void testCase2() {
+        double[][] goods = {{100, 20}, {120, 40}};
+        Assert.assertEquals(190.000, KnapSackService.solve(goods, 50), 0.001);
+    }
+
 }

@@ -1,7 +1,5 @@
 package ua.com.golubov.algo.medium;
 
-import javafx.util.Pair;
-
 import java.util.ArrayDeque;
 
 public class KnightLService {
@@ -44,8 +42,8 @@ public class KnightLService {
             int cx = v / n;
             int cy = v % n;
             for (Pair<Integer, Integer> e : moves) {
-                int dx = e.getKey();
-                int dy = e.getValue();
+                int dx = e.key;
+                int dy = e.value;
                 if (Math.abs(dx) == Math.abs(dy) && da != db) continue;
                 int nx = cx + dx;
                 int ny = cy + dy;
@@ -57,4 +55,13 @@ public class KnightLService {
         return d[n - 1][n - 1] == INF ? -1 : d[n - 1][n - 1];
     }
 
+    private static class Pair<K, V> {
+        private final K key;
+        private final V value;
+
+        private Pair(K key, V value) {
+            this.key = key;
+            this.value = value;
+        }
+    }
 }
