@@ -7,7 +7,7 @@ public class Crossover2Service {
 
     private static final long INIT_BEST_PRICE = -1;
 
-    static long findHowMuchCentsToSpend(int n, int L, long[] c) {
+    public static long findHowMuchCentsToSpend(int n, int L, long[] c) {
         if (c.length != n) {
             throw new IllegalStateException("Number of products should equal prices array size.");
         }

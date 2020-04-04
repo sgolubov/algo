@@ -1,6 +1,7 @@
-package ua.com.golubov.algo.exam;
+package ua.com.golubov.algo.exam.test;
 
 import org.junit.Test;
+import ua.com.golubov.algo.exam.Crossover2Service;
 
 import static org.junit.Assert.assertEquals;
 
